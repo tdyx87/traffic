@@ -15,6 +15,6 @@
 -(void)parseJson:(id)data flag:(NSString*)flag;
 -(void)parseData:(id)data flag:(NSString*)flag;
 -(void)returnPackData:(SID*)sid lineinfo:(LineInfo*)lineinfo results:(LineResultTwo*)result;
-
+-(void)parseWXSID;
 
 @end

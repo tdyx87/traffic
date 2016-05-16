@@ -360,14 +360,19 @@
         {
             [[StationController Instance]getWXSid:lname];
             
-            [[StationController Instance]getLineInfo:lname];
-            
         }
         
     }
     
     return YES;
 }
+
+-(void)parseWXSID
+{
+    NSString * lname =self.linename.text;
+    [[StationController Instance]getLineInfo:lname];
+}
+
 - (IBAction)searchevent:(id)sender {
     
     [StationController Instance].delegate = self;
@@ -378,7 +383,7 @@
     {
         [[StationController Instance]getWXSid:lname];
         
-        [[StationController Instance]getLineInfo:lname];
+        //[[StationController Instance]getLineInfo:lname];
         
     }
 }

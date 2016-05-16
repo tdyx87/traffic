@@ -316,6 +316,7 @@ static StationController * class;
             
             sid = tmp;
     }
+    [delegate parseWXSID];
 }
 
 -(void)parseWaitTime1:(NSDictionary *)data

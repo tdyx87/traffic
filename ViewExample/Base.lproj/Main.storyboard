@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <development version="6000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -44,7 +45,7 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-tU-qC2">
-                                <rect key="frame" x="513" y="122" width="48" height="30"/>
+                                <rect key="frame" x="513" y="202" width="48" height="30"/>
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -55,7 +56,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lab看见快来点击收费的收旧利废吉林省的解放军\n sdfdsfsdfdsfel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xau-Wm-Vxm">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="16" y="759" width="498" height="80"/>
@@ -65,7 +66,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ad7-jf-rko" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="226-Lj-RHF"/>
-                            <constraint firstItem="Lmw-tU-qC2" firstAttribute="top" secondItem="ad7-jf-rko" secondAttribute="bottom" constant="20" id="4Db-Bn-Dg8"/>
+                            <constraint firstItem="Lmw-tU-qC2" firstAttribute="top" secondItem="ad7-jf-rko" secondAttribute="bottom" constant="100" id="4Db-Bn-Dg8"/>
                             <constraint firstItem="Xau-Wm-Vxm" firstAttribute="leading" secondItem="ad7-jf-rko" secondAttribute="leading" id="7oY-V8-KUa"/>
                             <constraint firstItem="ad7-jf-rko" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CIL-DU-4tL"/>
                             <constraint firstItem="Xau-Wm-Vxm" firstAttribute="trailing" secondItem="ad7-jf-rko" secondAttribute="trailing" id="Jcv-29-kl7"/>
@@ -129,7 +130,7 @@
                             <userLayoutGuide location="400" affinity="minY"/>
                         </userGuides>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Labelcdfdsfdsf\nsadsfdsfjghjghjghjghjghjghjghjghjghjghjghjghjghjghjhgjghjhgj" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="368" translatesAutoresizingMaskIntoConstraints="NO" id="UCn-Ab-coa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Labelcdfdsfdsf\nsadsfdsfjghjghjghjghjghjghjghjghjghjghjghjghjghjghjhgjghjhgj" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="368" translatesAutoresizingMaskIntoConstraints="NO" id="UCn-Ab-coa">
                                 <rect key="frame" x="16" y="491" width="526" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,16 +181,16 @@
                                 <exclude reference="Z6D-19-dKd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Cbc-ee-XlD"/>
-                                <exclude reference="Fss-Ux-0PA"/>
-                                <exclude reference="HXV-JL-dPM"/>
-                                <exclude reference="d3m-ua-kvQ"/>
-                                <exclude reference="iB6-r9-S4S"/>
                                 <exclude reference="2ZT-Gs-Zfi"/>
                                 <exclude reference="bYb-KO-qkX"/>
                                 <exclude reference="w7p-RB-Suu"/>
                                 <exclude reference="ZDk-gN-LBs"/>
                                 <exclude reference="gpt-4e-0tb"/>
+                                <exclude reference="Cbc-ee-XlD"/>
+                                <exclude reference="Fss-Ux-0PA"/>
+                                <exclude reference="HXV-JL-dPM"/>
+                                <exclude reference="d3m-ua-kvQ"/>
+                                <exclude reference="iB6-r9-S4S"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -197,16 +198,16 @@
                                 <include reference="Z6D-19-dKd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Cbc-ee-XlD"/>
-                                <include reference="Fss-Ux-0PA"/>
-                                <include reference="HXV-JL-dPM"/>
-                                <include reference="d3m-ua-kvQ"/>
-                                <include reference="iB6-r9-S4S"/>
                                 <include reference="2ZT-Gs-Zfi"/>
                                 <include reference="bYb-KO-qkX"/>
                                 <include reference="w7p-RB-Suu"/>
                                 <include reference="ZDk-gN-LBs"/>
                                 <include reference="gpt-4e-0tb"/>
+                                <include reference="Cbc-ee-XlD"/>
+                                <include reference="Fss-Ux-0PA"/>
+                                <include reference="HXV-JL-dPM"/>
+                                <include reference="d3m-ua-kvQ"/>
+                                <include reference="iB6-r9-S4S"/>
                             </mask>
                         </variation>
                     </view>
