@@ -11,8 +11,6 @@
 #import "NetProtocol.h"
 @interface InfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NetProtocol>
 
-
-
 {
     
     LineResult * result;

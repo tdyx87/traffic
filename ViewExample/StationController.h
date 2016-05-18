@@ -18,7 +18,7 @@
 -(void)getWaitTime:(NSString*)stoptype stopid:(NSString*)stopid sid:(NSString*)sid;
 -(void)getLineStation:(NSString*)name lineid:(NSString*)lineid;
 -(void)getWaitTime:(NSString*)name lineid:(NSString*)lineid stopid:(NSString*)stopid direction:(NSString*)direction;
-
+-(void)getWXStation:(NSString*)SID;
 
 -(void)parseLineStation:(NSDictionary *)data;
 -(void)parseWXSid:(NSDictionary *)data;

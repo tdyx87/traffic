@@ -14,6 +14,7 @@
 #import "MLPCustomAutoCompleteCell.h"
 
 @interface ViewController() 
+@property (retain, nonatomic) IBOutlet UILabel *tips;
 
 @end
 
@@ -31,10 +32,20 @@
     
     
     //You can use custom TableViewCell classes and nibs in the autocomplete tableview if you wish.
-    [self.linename registerAutoCompleteCellClass:[MLPCustomAutoCompleteCell class]
-                                       forCellReuseIdentifier:@"CustomCellId"];
+    [self.linename registerAutoCompleteCellClass:[MLPCustomAutoCompleteCell class] forCellReuseIdentifier:@"CustomCellId"];
+    
+    
+    
+    self.tips.text = @"1、请输入完整的线路名称，如“933路”，“46路区间”\n2、本应用提供的信息可为用户出行提供参考，因信息更新等原因可能导致与实际不符，敬请谅解。\n3、由于公交线路还在不断更新补充中，部分线路尚未纳入查询系统，敬请谅解。";
+    
+    self.tips.numberOfLines = 0;
+    
+    
+    [_Search setImage:[UIImage imageNamed:@"bs.png"] forState:UIControlStateNormal];
     
 }
+
+
 
 
 
@@ -121,6 +132,9 @@
 -(void)parseWXSID
 {
     NSString * lname =self.linename.text;
+    
+    //[[StationController Instance]getWXStation:nil];
+    
     [[StationController Instance]getLineInfo:lname];
 }
 
@@ -140,6 +154,7 @@
 }
 - (void)dealloc {
     [_linename release];
+    [_tips release];
     [super dealloc];
 }
 @end

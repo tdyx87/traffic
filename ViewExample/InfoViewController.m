@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "StationController.h"
+#import "CustomView.h"
 @interface InfoViewController ()
 
 @end
@@ -35,31 +36,53 @@
     
     self.lineinfoview.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 80)];
     
-    UILabel * lable1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 40)];
+    
+    CustomView *v1 = [[CustomView alloc]init];
+    [v1 setTranslatesAutoresizingMaskIntoConstraints:NO];;
+    CustomView *v2 = [[CustomView alloc]init];
+    [v2 setTranslatesAutoresizingMaskIntoConstraints:NO];;
+    v1.checkedImg.image = [UIImage imageNamed:@"traffic_okicon"];
+    v2.checkedImg.image = [UIImage imageNamed:@"traffic_okicon"];
+    v1.station.text = [NSString stringWithFormat:@"%@->%@", lineinfo.start_stop ,lineinfo.end_stop];
+    v2.station.text = [NSString stringWithFormat:@"%@->%@", lineinfo.end_stop ,lineinfo.start_stop];
+
+    v1.firstImg.image = [UIImage imageNamed:@"traffic_sicon.png"];
+    v1.lastImg.image = [UIImage imageNamed:@"traffic_micon.png"];
+    
+    v1.firstTime.text = @"05:30";
+    v1.lastTime.text = @"22:30";
     
     
-    lable1.text = [NSString stringWithFormat:@"%@->%@", lineinfo.start_stop ,lineinfo.end_stop];
+    v2.firstImg.image = [UIImage imageNamed:@"traffic_sicon.png"];
+    v2.lastImg.image = [UIImage imageNamed:@"traffic_micon.png"];
     
-    UILabel * lable2 = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, 40)];
+    v2.firstTime.text = @"05:30";
+    v2.lastTime.text = @"22:30";
     
-    lable2.text = [NSString stringWithFormat:@"%@->%@", lineinfo.end_stop ,lineinfo.start_stop];;
+   
+    v1.tag = 1;
+    v2.tag = 2;
     
-    lable1.tag = 1;
-    lable2.tag = 2;
-    
-    [self.lineinfoview.tableHeaderView addSubview:lable1 ];
-     [self.lineinfoview.tableHeaderView addSubview:lable2 ];
-    
+    [self.lineinfoview.tableHeaderView addSubview:v1 ];
+    [self.lineinfoview.tableHeaderView addSubview:v2 ];
     
     
-    lable1.userInteractionEnabled=YES;
-    lable2.userInteractionEnabled=YES;
+    
+    
+    [self.lineinfoview.tableHeaderView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.lineinfoview.tableHeaderView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v1(==v2)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(v1,v2)]];
+    
+    
+    
+    v1.userInteractionEnabled=YES;
+    v2.userInteractionEnabled=YES;
     UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
     
     UITapGestureRecognizer *labelTapGestureRecognizer2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
     
-    [lable2 addGestureRecognizer:labelTapGestureRecognizer2];
-    [lable1 addGestureRecognizer:labelTapGestureRecognizer];
+    [v1 addGestureRecognizer:labelTapGestureRecognizer2];
+    [v2 addGestureRecognizer:labelTapGestureRecognizer];
     
     
     self.lineinfoview.delegate = self;

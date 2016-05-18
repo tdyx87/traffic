@@ -63,6 +63,20 @@ static StationController * class;
  
 }
 
+-(void)getWXStation:(NSString *)SID
+{
+    NSString *url1   = [[NSString alloc]initWithFormat:@"http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/%@",sid.sid ];
+    NSString * encodingString = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *url = [[NSURL alloc]initWithString:encodingString];
+    
+    NSMutableURLRequest * request =  [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
+    
+    [request setValue:@"ansoecdxc=0; Hm_1vt_6f69830ae7173059e935b61372431b35=0; HH=0; HK=0; HG=0; HA=0; HB=0; HC=0; HD=0; HY=0; HO=0; Hm_p1vt_6f69830ae7173059e935b61372431b35=0; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=0; Hm_lpvt_6f69830ae7173059e935b61372431b35=0; _ga=0" forHTTPHeaderField:@"Cookie"];
+    
+    [[NetAdapter alloc]initWithRequest:request delegate:self flag:@"LineInfo"];
+}
+
 -(void)getLineInfo:(NSString *)linename
 {
     
