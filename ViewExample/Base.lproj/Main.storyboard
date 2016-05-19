@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <development version="6000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -96,11 +97,11 @@
                                 <exclude reference="ASR-lq-sE1"/>
                                 <exclude reference="PRS-IU-FjH"/>
                                 <exclude reference="gXG-AR-lch"/>
-                                <exclude reference="Jg6-Su-ZUl"/>
-                                <exclude reference="vz2-b7-l2O"/>
                                 <exclude reference="4dy-y3-Wzi"/>
                                 <exclude reference="cHf-Bd-7hv"/>
                                 <exclude reference="qzd-Rn-VYI"/>
+                                <exclude reference="Jg6-Su-ZUl"/>
+                                <exclude reference="vz2-b7-l2O"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -111,11 +112,11 @@
                                 <include reference="ASR-lq-sE1"/>
                                 <include reference="PRS-IU-FjH"/>
                                 <include reference="gXG-AR-lch"/>
-                                <include reference="Jg6-Su-ZUl"/>
-                                <include reference="vz2-b7-l2O"/>
                                 <include reference="4dy-y3-Wzi"/>
                                 <include reference="cHf-Bd-7hv"/>
                                 <include reference="qzd-Rn-VYI"/>
+                                <include reference="Jg6-Su-ZUl"/>
+                                <include reference="vz2-b7-l2O"/>
                             </mask>
                         </variation>
                     </view>
@@ -151,7 +152,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
-                            <userLayoutGuide location="400" affinity="minY"/>
+                            <userLayoutGuide location="402" affinity="minY"/>
                         </userGuides>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Labelcdfdsfdsf\nsadsfdsfjghjghjghjghjghjghjghjghjghjghjghjghjghjghjhgjghjhgj" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="368" translatesAutoresizingMaskIntoConstraints="NO" id="UCn-Ab-coa">
@@ -166,32 +167,39 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-19-dKd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="wLI-EM-plm"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wLI-EM-plm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="wLI-EM-plm"/>
+                                    </mask>
+                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UCn-Ab-coa" firstAttribute="leading" secondItem="ZKd-yn-rwM" secondAttribute="leading" id="Fb4-04-SqM"/>
-                            <constraint firstAttribute="bottom" secondItem="Z6D-19-dKd" secondAttribute="bottom" constant="50" id="KtG-hG-EiM"/>
-                            <constraint firstAttribute="bottom" secondItem="UCn-Ab-coa" secondAttribute="bottom" constant="20" id="hPo-Os-zld"/>
-                            <constraint firstItem="Z6D-19-dKd" firstAttribute="top" secondItem="ZKd-yn-rwM" secondAttribute="top" constant="70" id="i9t-Kj-9MH"/>
-                            <constraint firstAttribute="trailing" secondItem="Z6D-19-dKd" secondAttribute="trailing" constant="10" id="lQA-4G-HpI">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="Z6D-19-dKd" firstAttribute="leading" secondItem="ZKd-yn-rwM" secondAttribute="leading" constant="10" id="wrT-Br-qTK">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstItem="Z6D-19-dKd" firstAttribute="leading" secondItem="UCn-Ab-coa" secondAttribute="leading" id="PfC-DJ-iQH"/>
+                            <constraint firstItem="Z6D-19-dKd" firstAttribute="leading" secondItem="ZKd-yn-rwM" secondAttribute="leadingMargin" id="Xmg-2g-3qu"/>
+                            <constraint firstItem="Z6D-19-dKd" firstAttribute="top" secondItem="ZFe-gw-Ulc" secondAttribute="bottom" id="ryo-Ff-nkQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z6D-19-dKd" secondAttribute="trailing" id="sTL-PZ-5YR"/>
+                            <constraint firstItem="Z6D-19-dKd" firstAttribute="centerY" secondItem="UCn-Ab-coa" secondAttribute="centerY" id="yur-n9-ePG"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Z6D-19-dKd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="KtG-hG-EiM"/>
-                                <exclude reference="i9t-Kj-9MH"/>
-                                <exclude reference="lQA-4G-HpI"/>
-                                <exclude reference="wrT-Br-qTK"/>
-                                <exclude reference="Fb4-04-SqM"/>
-                                <exclude reference="hPo-Os-zld"/>
+                                <exclude reference="PfC-DJ-iQH"/>
+                                <exclude reference="Xmg-2g-3qu"/>
+                                <exclude reference="ryo-Ff-nkQ"/>
+                                <exclude reference="sTL-PZ-5YR"/>
+                                <exclude reference="yur-n9-ePG"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -199,12 +207,11 @@
                                 <include reference="Z6D-19-dKd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="KtG-hG-EiM"/>
-                                <include reference="i9t-Kj-9MH"/>
-                                <include reference="lQA-4G-HpI"/>
-                                <include reference="wrT-Br-qTK"/>
-                                <include reference="Fb4-04-SqM"/>
-                                <include reference="hPo-Os-zld"/>
+                                <include reference="PfC-DJ-iQH"/>
+                                <include reference="Xmg-2g-3qu"/>
+                                <include reference="ryo-Ff-nkQ"/>
+                                <include reference="sTL-PZ-5YR"/>
+                                <include reference="yur-n9-ePG"/>
                             </mask>
                         </variation>
                     </view>

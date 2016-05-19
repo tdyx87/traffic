@@ -9,6 +9,7 @@
 #import "InfoViewController.h"
 #import "StationController.h"
 #import "CustomView.h"
+#import "AutoLayoutUtils.h"
 @interface InfoViewController ()
 
 @end
@@ -32,12 +33,12 @@
     
     [StationController Instance].delegate = self;
     
-    //lineinfoview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 500) style:UITableViewStylePlain];
-    
-    self.lineinfoview.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 80)];
-    
+    UIView *headView = [[UIView alloc]init];
+
+    [headView setBackgroundColor:[UIColor redColor]];
     
     CustomView *v1 = [[CustomView alloc]init];
+    
     [v1 setTranslatesAutoresizingMaskIntoConstraints:NO];;
     CustomView *v2 = [[CustomView alloc]init];
     [v2 setTranslatesAutoresizingMaskIntoConstraints:NO];;
@@ -62,27 +63,31 @@
    
     v1.tag = 1;
     v2.tag = 2;
+   
+    [headView addSubview:v1 ];
+    [headView addSubview:v2 ];
     
-    [self.lineinfoview.tableHeaderView addSubview:v1 ];
-    [self.lineinfoview.tableHeaderView addSubview:v2 ];
-    
-    
-    
-    
-    [self.lineinfoview.tableHeaderView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    [self.lineinfoview.tableHeaderView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v1(==v2)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(v1,v2)]];
-    
-    
-    
-    v1.userInteractionEnabled=YES;
-    v2.userInteractionEnabled=YES;
+    headView.userInteractionEnabled = YES;
+    v1.userInteractionEnabled = YES;
+    v2.userInteractionEnabled = YES;
+    [headView setTranslatesAutoresizingMaskIntoConstraints:YES];
+ 
     UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
     
     UITapGestureRecognizer *labelTapGestureRecognizer2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
     
+    
+    
     [v1 addGestureRecognizer:labelTapGestureRecognizer2];
     [v2 addGestureRecognizer:labelTapGestureRecognizer];
+    
+    [headView addConstraint:[NSLayoutConstraint constraintWithItem:v1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:headView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    [headView addConstraint:[NSLayoutConstraint constraintWithItem:v2 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:headView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[v1(39)]-2-[v2(==v1)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(v1,v2)]];
+    
+    headView.frame = CGRectMake(0, 0, self.lineinfoview.frame.size.width, 80) ;
+    
+    self.lineinfoview.tableHeaderView = headView;
     
     
     self.lineinfoview.delegate = self;
@@ -91,27 +96,33 @@
     
     result =lineresulttwo.lineresult0;
     
-    
-    
-    //[self.view addSubview:lineinfoview];
 }
 
 
 
 -(void) labelTouchUpInside:(UITapGestureRecognizer *)recognizer{
     
-    UILabel *label=(UILabel*)recognizer.view;
     
-    if(label.tag == 1)
+    CustomView * v = (CustomView*)recognizer.view;
+
+    if(v.tag == 1)
     {
         result = lineresulttwo.lineresult0;
-        
-    }else if(label.tag == 2)
+    }else if(v.tag == 2)
     {
         result = lineresulttwo.lineresult1;
     }
     
     [self.lineinfoview reloadData];
+    
+    
+    
+    
+    
+    v.selected = YES;
+    [v selected2];
+    
+    
 }
 
 
