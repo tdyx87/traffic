@@ -49,18 +49,11 @@
         
         [station setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        NSLayoutConstraint * left = [AutoLayoutUtils setLeft:station superview:self left:50];
-        
-       // [self addConstraint:left];
-        
         
         constraint = [AutoLayoutUtils setTop:station superview:self top:0];
         
         [self addConstraint:constraint];
         
-        constraint = [AutoLayoutUtils setCenterY:station superview:self y:0];
-        
-        //[self addConstraint:constraint];
         
         self.station = station;
         
@@ -136,15 +129,23 @@
 }
 
 
+
+
 -(BOOL)selected2
 {
     if(self.selected)
     {
         [self setBackgroundColor:[UIColor blueColor]];
+        
+        self.checkedImg.hidden = NO;
+        
     }
     else
     {
         [self setBackgroundColor:[UIColor grayColor]];
+        
+        self.checkedImg.hidden = YES;
+        
     }
     return YES;
 }

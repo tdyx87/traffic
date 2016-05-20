@@ -33,7 +33,7 @@
 
 @property (copy) NSString *zdmc;
 @property (copy) NSString  *stopsid;
-
+@property (copy) NSString  *waitStatus;
 @end
 
 @interface LineResult : NSObject<NSCopying>

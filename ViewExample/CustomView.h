@@ -18,7 +18,7 @@
 @property UILabel *firstTime;
 @property UILabel *lastTime;
 @property (nonatomic) BOOL selected;
-
+ 
 -(BOOL)selected2;
 
 @end

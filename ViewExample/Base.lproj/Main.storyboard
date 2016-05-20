@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <development version="6000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -94,12 +93,12 @@
                                 <exclude reference="Xau-Wm-Vxm"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ASR-lq-sE1"/>
-                                <exclude reference="PRS-IU-FjH"/>
-                                <exclude reference="gXG-AR-lch"/>
                                 <exclude reference="4dy-y3-Wzi"/>
                                 <exclude reference="cHf-Bd-7hv"/>
                                 <exclude reference="qzd-Rn-VYI"/>
+                                <exclude reference="ASR-lq-sE1"/>
+                                <exclude reference="PRS-IU-FjH"/>
+                                <exclude reference="gXG-AR-lch"/>
                                 <exclude reference="Jg6-Su-ZUl"/>
                                 <exclude reference="vz2-b7-l2O"/>
                             </mask>
@@ -109,12 +108,12 @@
                                 <include reference="Xau-Wm-Vxm"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ASR-lq-sE1"/>
-                                <include reference="PRS-IU-FjH"/>
-                                <include reference="gXG-AR-lch"/>
                                 <include reference="4dy-y3-Wzi"/>
                                 <include reference="cHf-Bd-7hv"/>
                                 <include reference="qzd-Rn-VYI"/>
+                                <include reference="ASR-lq-sE1"/>
+                                <include reference="PRS-IU-FjH"/>
+                                <include reference="gXG-AR-lch"/>
                                 <include reference="Jg6-Su-ZUl"/>
                                 <include reference="vz2-b7-l2O"/>
                             </mask>
@@ -154,72 +153,9 @@
                         <userGuides>
                             <userLayoutGuide location="402" affinity="minY"/>
                         </userGuides>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Labelcdfdsfdsf\nsadsfdsfjghjghjghjghjghjghjghjghjghjghjghjghjghjghjhgjghjhgj" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="368" translatesAutoresizingMaskIntoConstraints="NO" id="UCn-Ab-coa">
-                                <rect key="frame" x="16" y="491" width="526" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                </variation>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-19-dKd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="wLI-EM-plm"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="wLI-EM-plm"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="wLI-EM-plm"/>
-                                    </mask>
-                                </variation>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Z6D-19-dKd" firstAttribute="leading" secondItem="UCn-Ab-coa" secondAttribute="leading" id="PfC-DJ-iQH"/>
-                            <constraint firstItem="Z6D-19-dKd" firstAttribute="leading" secondItem="ZKd-yn-rwM" secondAttribute="leadingMargin" id="Xmg-2g-3qu"/>
-                            <constraint firstItem="Z6D-19-dKd" firstAttribute="top" secondItem="ZFe-gw-Ulc" secondAttribute="bottom" id="ryo-Ff-nkQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Z6D-19-dKd" secondAttribute="trailing" id="sTL-PZ-5YR"/>
-                            <constraint firstItem="Z6D-19-dKd" firstAttribute="centerY" secondItem="UCn-Ab-coa" secondAttribute="centerY" id="yur-n9-ePG"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Z6D-19-dKd"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="PfC-DJ-iQH"/>
-                                <exclude reference="Xmg-2g-3qu"/>
-                                <exclude reference="ryo-Ff-nkQ"/>
-                                <exclude reference="sTL-PZ-5YR"/>
-                                <exclude reference="yur-n9-ePG"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Z6D-19-dKd"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="PfC-DJ-iQH"/>
-                                <include reference="Xmg-2g-3qu"/>
-                                <include reference="ryo-Ff-nkQ"/>
-                                <include reference="sTL-PZ-5YR"/>
-                                <include reference="yur-n9-ePG"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="DbW-wg-m3J"/>
-                    <connections>
-                        <outlet property="lineLable" destination="UCn-Ab-coa" id="7mL-JB-Jci"/>
-                        <outlet property="lineinfoview" destination="Z6D-19-dKd" id="KkB-Eo-U9t"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aD8-r9-xbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

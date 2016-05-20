@@ -16,17 +16,20 @@
     LineResult * result;
     
 }
-@property (retain, nonatomic) IBOutlet UITableView *lineinfoview;
+@property  UITableView *lineinfoview;
 
 @property NSString* linename;
-@property (nonatomic) IBOutlet UILabel *lineLable;
 
+@property NSArray * array;
 
 @property SID* sid;
 @property LineInfo *lineinfo;
 @property LineResultTwo * lineresulttwo;
 
+@property NSIndexPath * selectIndexPath;
+
 - (IBAction)backEvent:(id)sender;
 
+-(void)updateChecked:(id)v;
 
 @end

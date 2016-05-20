@@ -31,6 +31,7 @@
 		CE980F751CEC6CE2001B7D96 /* traffic_sicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE980F6B1CEC6CE2001B7D96 /* traffic_sicon.png */; };
 		CE980F761CEC6CE2001B7D96 /* traffic_up.png in Resources */ = {isa = PBXBuildFile; fileRef = CE980F6C1CEC6CE2001B7D96 /* traffic_up.png */; };
 		CE980F791CEC6E84001B7D96 /* AutoLayoutUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE980F781CEC6E84001B7D96 /* AutoLayoutUtils.m */; };
+		CE980FB61CEEF9EE001B7D96 /* CustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE980FB51CEEF9EE001B7D96 /* CustomTableCell.m */; };
 		D0EB7E001CD0248200524506 /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EB7DFB1CD0248200524506 /* MLPAutoCompleteTextField.m */; };
 		D0EB7E011CD0248200524506 /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EB7DFF1CD0248200524506 /* NSString+Levenshtein.m */; };
 		D0EB7E041CD0248C00524506 /* MLPCustomAutoCompleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EB7E031CD0248C00524506 /* MLPCustomAutoCompleteCell.m */; };
@@ -84,6 +85,8 @@
 		CE980F6C1CEC6CE2001B7D96 /* traffic_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = traffic_up.png; sourceTree = SOURCE_ROOT; };
 		CE980F771CEC6E84001B7D96 /* AutoLayoutUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutUtils.h; sourceTree = "<group>"; };
 		CE980F781CEC6E84001B7D96 /* AutoLayoutUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutUtils.m; sourceTree = "<group>"; };
+		CE980FB41CEEF9EE001B7D96 /* CustomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableCell.h; sourceTree = "<group>"; };
+		CE980FB51CEEF9EE001B7D96 /* CustomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableCell.m; sourceTree = "<group>"; };
 		D0EB7DFA1CD0248200524506 /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
 		D0EB7DFB1CD0248200524506 /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
 		D0EB7DFC1CD0248200524506 /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 		CE26C74E1CCDE7FF00E9D894 /* ViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				CE980FB41CEEF9EE001B7D96 /* CustomTableCell.h */,
+				CE980FB51CEEF9EE001B7D96 /* CustomTableCell.m */,
 				CE980F771CEC6E84001B7D96 /* AutoLayoutUtils.h */,
 				CE980F781CEC6E84001B7D96 /* AutoLayoutUtils.m */,
 				CE980F631CEC6CE2001B7D96 /* traffic_arr.png */,
@@ -328,6 +333,7 @@
 				CE980F621CEC6CD9001B7D96 /* CustomView.m in Sources */,
 				D0EB7E001CD0248200524506 /* MLPAutoCompleteTextField.m in Sources */,
 				CE26C7581CCDE7FF00E9D894 /* ViewController.m in Sources */,
+				CE980FB61CEEF9EE001B7D96 /* CustomTableCell.m in Sources */,
 				D0EB7E011CD0248200524506 /* NSString+Levenshtein.m in Sources */,
 				CE26C7551CCDE7FF00E9D894 /* AppDelegate.m in Sources */,
 				CE26C7801CCDFBC000E9D894 /* Station.m in Sources */,
