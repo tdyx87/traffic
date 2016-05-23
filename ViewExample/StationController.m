@@ -8,6 +8,7 @@
 
 #import "StationController.h"
 #import "NetAdapter.h"
+
 /*
  A controller object that manages a simple model -- a collection of month names.
  
@@ -29,6 +30,7 @@ static StationController * class;
 
 -(void)getWXSid:(NSString *)linename
 {
+
     self.name=linename;
     
     NSString *urlstr   = [[NSString alloc]initWithFormat:@"http://shanghaicity.openservice.kankanews.com/public/bus/get"];
@@ -104,6 +106,14 @@ static StationController * class;
     [[NetAdapter alloc]initWithRequest:request delegate:self flag:@"LineStation"];
 }
 
+-(void)failed
+{
+    if(delegate && [delegate respondsToSelector:@selector(failed)] == YES)
+    {
+        [delegate failed];
+    }
+}
+
 -(void)getWaitTime:(NSString *)lname lineid:(NSString *)lineid stopid:(NSString *)stopid direction:(NSString *)direction
 {
     
@@ -117,6 +127,20 @@ static StationController * class;
     
     [[NetAdapter alloc]initWithRequest:request delegate:self flag:@"WaitTime1"];
     
+}
+
+-(void)getBuss
+{
+    NSString *url1   = [[NSString alloc]initWithFormat:@"http://shanghaicity.openservice.kankanews.com/public/bus"];
+    NSString * encodingString = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *url = [[NSURL alloc]initWithString:encodingString];
+    
+    NSMutableURLRequest * request =  [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
+    
+    [request setValue:@"ansoecdxc=0; Hm_1vt_6f69830ae7173059e935b61372431b35=0; HH=0; HK=0; HG=0; HA=0; HB=0; HC=0; HD=0; HY=0; HO=0; Hm_p1vt_6f69830ae7173059e935b61372431b35=0; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=0; Hm_lpvt_6f69830ae7173059e935b61372431b35=0; _ga=0" forHTTPHeaderField:@"Cookie"];
+    
+    [[NetAdapter alloc]initWithRequest:request delegate:self flag:@"getBuss"];
 }
 
 -(void)getWaitTime:(NSString *)stoptype stopid:(NSString *)stopid sid:(NSString *)lsid
@@ -249,7 +273,7 @@ static StationController * class;
         NSString *direction = [result0 objectForKey:@"direction"];
         id stops =  [result0 objectForKey:@"stops"];
         lineresult0.direction = direction;
-        lineresult0.stops = [[NSMutableArray array]retain];;
+        lineresult0.stops = [NSMutableArray array];;
         if ([stops isKindOfClass:[NSArray class]]) {
             
             for(id info in stops)
@@ -279,7 +303,7 @@ static StationController * class;
         direction = [result1 objectForKey:@"direction"];
         stops =  [result1 objectForKey:@"stops"];
         lineresult1.direction = direction;
-        lineresult1.stops = [[NSMutableArray array]retain];
+        lineresult1.stops = [NSMutableArray array];
         if ([stops isKindOfClass:[NSArray class]]) {
             
             for(id  info in stops)
@@ -308,7 +332,8 @@ static StationController * class;
         SID * dd = [sid copy];
         LineInfo *li = [lineinfo copy];
         
-        [delegate returnPackData:dd lineinfo:li results:two];
+        if(delegate && [delegate respondsToSelector:@selector(returnPackData:lineinfo:results:)])
+            [delegate returnPackData:dd lineinfo:li results:two];
         
     }
 }
@@ -330,7 +355,8 @@ static StationController * class;
             
             sid = tmp;
     }
-    [delegate parseWXSID];
+    if(delegate && [delegate respondsToSelector: @selector(parseWXSID)]==YES)
+        [delegate parseWXSID];
 }
 
 -(void)parseWaitTime1:(NSDictionary *)data
@@ -353,14 +379,16 @@ static StationController * class;
         
         NSDictionary * item = (NSDictionary *)[(NSArray*)data objectAtIndex:0];
         
-        [delegate parseData:item flag:@"WaitTime2"];
+        if(delegate && [delegate respondsToSelector:@selector(parseData:flag:)])
+            [delegate parseData:item flag:@"WaitTime2"];
         
         
         
     }
     else if ([data isKindOfClass:[NSDictionary class]]) {
         
-        [delegate parseData:data flag:@"WaitTime2"];
+        if(delegate && [delegate respondsToSelector:@selector(parseData:flag:)])
+            [delegate parseData:data flag:@"WaitTime2"];
         
     }
 }
@@ -370,7 +398,7 @@ static StationController * class;
     NSError *error = nil;
     NSDictionary*  jsondata = [NSJSONSerialization JSONObjectWithData:(NSData*)data options:NSJSONReadingMutableLeaves error:&error];
     NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",aString);
+    //NSLog(@"%@",aString);
    if([flag isEqual:@"SID"])
    {
        [self parseWXSid:jsondata];
@@ -433,30 +461,6 @@ static StationController * class;
     return self; //确保copy对象也是唯一
     
 }
-
--(id)retain{
-    
-    return self; //确保计数唯一
-    
-}
-
--(id)autorelease
-{
-    
-    return self;//确保计数唯一
-    
-}
-
-
-
--(oneway void)release
-
-{
-    
-    //重写计数释放方法
-    
-}
-
 
 
 @end

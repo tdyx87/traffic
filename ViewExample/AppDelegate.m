@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Reachability+AutoChecker.h"
 @interface AppDelegate ()
 
 @end
@@ -15,8 +15,16 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    //检测某一特定站点的接续状况，可以使用下面的代码
+    Reachability *pReachability = [Reachability reachabilityWithHostName:@"appservices.comcsoft.com"];
+    //开始监控网络状态
+    [Reachability startCheckWithReachability:pReachability];
+    
     return YES;
 }
 

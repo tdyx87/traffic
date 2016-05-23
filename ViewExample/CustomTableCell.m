@@ -31,7 +31,7 @@
         [waitStatus setTranslatesAutoresizingMaskIntoConstraints:NO];
         _waitStatus = waitStatus;
         
-        waitStatus.font = [UIFont systemFontOfSize:12.0f];
+        waitStatus.font = [UIFont systemFontOfSize:14.0f];
         
         [self.contentView addSubview:waitStatus];
         

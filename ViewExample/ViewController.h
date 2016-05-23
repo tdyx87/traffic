@@ -22,6 +22,8 @@
 @property (retain, nonatomic) IBOutlet MLPAutoCompleteTextField *linename;
 
 - (IBAction)searchevent:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *more;
+- (IBAction)more:(id)sender;
 
 
 @end

@@ -16,6 +16,9 @@
     LineResult * result;
     
 }
+
+@property NSString * waitStauts;
+
 @property  UITableView *lineinfoview;
 
 @property NSString* linename;

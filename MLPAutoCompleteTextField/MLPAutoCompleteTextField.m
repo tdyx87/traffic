@@ -338,7 +338,7 @@ withAutoCompleteString:(NSString *)string
 {
     [self.autoCompleteTableView setUserInteractionEnabled:NO];
     [self.autoCompleteQueue cancelAllOperations];
-    NSLog(@"%@",self.autoCompleteDataSource);
+  
     
     NSArray *suggestions = [self.autoCompleteDataSource possibleAutoCompleteSuggestionsForString:self.text];
     MLPAutoCompleteOperation *operation = [[MLPAutoCompleteOperation alloc] initWithDelegate:self
@@ -741,8 +741,19 @@ withAutoCompleteString:(NSString *)string
     
     NSMutableArray *results = [NSMutableArray array];
     [results addObjectsFromArray:prioritySuggestions];
-    [results addObjectsFromArray:otherSuggestions];
+    //[results addObjectsFromArray:otherSuggestions];
     
+    
+    
+    [results sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        
+        if(((NSString*)obj1).length > ((NSString*)obj2).length)
+        {
+            return YES;
+        }
+        return NO;
+        
+    }];
     
     return [NSArray arrayWithArray:results];
 }

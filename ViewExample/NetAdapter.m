@@ -103,12 +103,19 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    
+    
+    if(delegate && [ delegate respondsToSelector:@selector(failed)]==YES)
+        [delegate failed];
+    
     if (connection != conn) {
         
         return;
     }
     
-    NSLog(@"%@",error);
+    
+    
+    //NSLog(@"%@",error);
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -137,8 +144,10 @@
             
             [conn cancel];
             
+            if(delegate && [ delegate respondsToSelector:@selector(failed)]==YES)
+                [delegate failed];
             
-            NSLog(@"%d",status);
+            //NSLog(@"%d",status);
             return;
         }
     }

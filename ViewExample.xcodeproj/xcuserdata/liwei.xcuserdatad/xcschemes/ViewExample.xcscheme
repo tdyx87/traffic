@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE26C74B1CCDE7FF00E9D894"
-               BuildableName = "ViewExample.app"
+               BuildableName = "&#x4e0a;&#x6d77;&#x5b9e;&#x65f6;&#x516c;&#x4ea4;.app"
                BlueprintName = "ViewExample"
                ReferencedContainer = "container:ViewExample.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE26C74B1CCDE7FF00E9D894"
-            BuildableName = "ViewExample.app"
+            BuildableName = "&#x4e0a;&#x6d77;&#x5b9e;&#x65f6;&#x516c;&#x4ea4;.app"
             BlueprintName = "ViewExample"
             ReferencedContainer = "container:ViewExample.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE26C74B1CCDE7FF00E9D894"
-            BuildableName = "ViewExample.app"
+            BuildableName = "&#x4e0a;&#x6d77;&#x5b9e;&#x65f6;&#x516c;&#x4ea4;.app"
             BlueprintName = "ViewExample"
             ReferencedContainer = "container:ViewExample.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE26C74B1CCDE7FF00E9D894"
-            BuildableName = "ViewExample.app"
+            BuildableName = "&#x4e0a;&#x6d77;&#x5b9e;&#x65f6;&#x516c;&#x4ea4;.app"
             BlueprintName = "ViewExample"
             ReferencedContainer = "container:ViewExample.xcodeproj">
          </BuildableReference>

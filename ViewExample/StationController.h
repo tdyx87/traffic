@@ -28,6 +28,9 @@
 -(NSString*)TrimStr:(NSString*)str pre:(NSString*)pre sub:(NSString*)sub;
 
 
+-(void)getBuss;
+
+
 +(StationController*)Instance;
 
 @property id<NetProtocol>  delegate;

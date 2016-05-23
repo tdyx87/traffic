@@ -1,0 +1,18 @@
+
+/* Class = "UIViewController"; title = "View Controller"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "View Controller";
+
+/* Class = "UILabel"; text = "等车必备坐车必备"; ObjectID = "PIf-93-a3M"; */
+"PIf-93-a3M.text" = "等车必备坐车必备";
+
+/* Class = "UITextField"; accessibilityHint = "sfdfdfdsfdf"; ObjectID = "ad7-jf-rko"; */
+"ad7-jf-rko.accessibilityHint" = "sfdfdfdsfdf";
+
+/* Class = "UITextField"; accessibilityLabel = "sadsad"; ObjectID = "ad7-jf-rko"; */
+"ad7-jf-rko.accessibilityLabel" = "sadsad";
+
+/* Class = "UINavigationController"; title = "View Controller"; ObjectID = "eIO-Ly-Vug"; */
+"eIO-Ly-Vug.title" = "View Controller";
+
+/* Class = "UIButton"; normalTitle = "如果无聊就点我"; ObjectID = "sEd-vg-mS7"; */
+"sEd-vg-mS7.normalTitle" = "如果无聊就点我";

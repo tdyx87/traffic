@@ -10,7 +10,7 @@
 #import "StationController.h"
 #import "CustomView.h"
 #import "AutoLayoutUtils.h"
-
+#import "Reachability+AutoChecker.h"
 #import "CustomTableCell.h"
 @interface InfoViewController ()
 
@@ -28,19 +28,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     
-    
-    
-    
-    
-    
-    self.lineinfoview =  [[UITableView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame style:UITableViewStylePlain];
+    self.lineinfoview =  [[UITableView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame style:UITableViewStyleGrouped];
     
     [self.lineinfoview setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     
     self.lineinfoview.separatorInset = UIEdgeInsetsMake(0, 2,0, 2);
     
+    self.view.backgroundColor = [UIColor colorWithRed:237/255.0f green:236/255.0f blue:240/255.0f alpha:1.0f];
     
     [self.view addSubview:self.lineinfoview];
     
@@ -66,13 +63,13 @@
     
     [self.view  addConstraints:cons];
     
-    self.navigationItem.title = @"详细信息";
+    self.navigationItem.title = lineinfo.line_name;
     
     [StationController Instance].delegate = self;
     
     UIView *headView = [[UIView alloc]init];
 
-    [headView setBackgroundColor:[UIColor redColor]];
+    [headView setBackgroundColor:[UIColor colorWithRed:237/255.0f green:236/255.0f blue:240/255.0f alpha:1.0f]];
     
     CustomView *v1 = [[CustomView alloc]init];
     
@@ -121,6 +118,17 @@
     
     UITapGestureRecognizer *labelTapGestureRecognizer2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
     
+    UILabel * tips = [[UILabel alloc]init];
+    
+    
+    [tips setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    tips.font = [UIFont systemFontOfSize:14.0f];
+    tips.numberOfLines = 0;
+    
+    tips.text = @"注意请不要坐错方向，以距离站为准，时间可能不是很准确";
+    
+    [headView addSubview:tips];
     
     
     [v1 addGestureRecognizer:labelTapGestureRecognizer2];
@@ -128,9 +136,16 @@
     
     [headView addConstraint:[NSLayoutConstraint constraintWithItem:v1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:headView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
     [headView addConstraint:[NSLayoutConstraint constraintWithItem:v2 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:headView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
-    [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[v1(39)]-2-[v2(==v1)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(v1,v2)]];
+    [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[v1(70)][v2(==v1)]-0-[tips(50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(v1,v2,tips)]];
     
-    headView.frame = CGRectMake(0, 0, self.lineinfoview.frame.size.width, 80) ;
+    
+    
+    
+    [headView addConstraint:[NSLayoutConstraint constraintWithItem:tips attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:headView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    
+    
+    
+    headView.frame = CGRectMake(0, 0, self.lineinfoview.frame.size.width, 200) ;
     
     self.lineinfoview.tableHeaderView = headView;
     
@@ -209,7 +224,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    NSLog(@"sdasdsad");
+
     
 }
 
@@ -226,7 +241,7 @@
     NSError *error = nil;
     NSDictionary*  jsondata = (NSDictionary*)data;
     
-    NSString * lable = nil;
+    
     
     if ([jsondata isKindOfClass:[NSArray class]]) {
         
@@ -242,11 +257,8 @@
             
             if([error isEqual:@"-2" ])
             {
-                lable = @"等待发车";
-                
-                
+                _waitStauts = @"等待发车";
             }
-            
         }
         else
         {
@@ -261,21 +273,29 @@
             id distance = [jsondata objectForKey:@"distance"];
             
             id time = [jsondata objectForKey:@"time"];
+
+            NSScanner* scan = [NSScanner scannerWithString:time];
+            int val;
+            if([scan scanInt:&val] && [scan isAtEnd])
+            {
+                int  minite = [time intValue] / 60;
+                int  seconds = [time intValue] % 60;
+                _waitStauts = [NSString stringWithFormat:@"%@距离%@站等待时间:%d分%d秒",terminal,stopdis,minite,seconds];
+            }
+            else
+            {
+                _waitStauts = [NSString stringWithFormat:@"%@距离%@站等待时间:%@",terminal,stopdis,time];
+            }
             
-            lable = [NSString stringWithFormat:@"车牌:%@ 距离%@站 等待时间:%@",terminal,stopdis,time];
         }
         
-        
         CustomTableCell * cell = (CustomTableCell *)[self.lineinfoview cellForRowAtIndexPath:self.selectIndexPath];
-        cell.waitStatus.text = lable;
+        cell.waitStatus.text = _waitStauts;
         
+        Stops * tmp = [result.stops objectAtIndex:self.selectIndexPath.row];
         
-       //lable = [lable stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        tmp.waitStatus = _waitStauts;
         
-        
-       // self.lineLable.text = lable;
-       // [self.lineLable setFont:[UIFont boldSystemFontOfSize:12]];
-       // self.lineLable.numberOfLines = 0; // 关键一句
     }
     
    
@@ -302,13 +322,22 @@
     
     cell.layer.masksToBounds = YES;
     
-    cell.stationName.text = tmp.zdmc;
+    
+    if(_selectIndexPath == indexPath)
+    {
+        cell.stationName.textColor = cell.waitStatus.textColor = [UIColor colorWithRed:40/255.0f green:115/255.0f blue:215/255.0f alpha:1.0f];
+    }
+    else
+    {
+        cell.stationName.textColor = cell.waitStatus.textColor = [UIColor blackColor];
+    }
+    
+    cell.stationName.text =  [NSString stringWithFormat:@"%ld.%@",(long)indexPath.row+1,tmp.zdmc ];
     
     cell.waitImg.image = [UIImage imageNamed:@"traffic_shu.png"];
     
     cell.waitStatus.text = tmp.waitStatus;
-    
-    
+
     UILabel * stationName = cell.stationName;
     UILabel * waitStatus = cell.waitStatus;
     UIImageView * waitImg = cell.waitImg;
@@ -317,11 +346,11 @@
     NSDictionary * views =  NSDictionaryOfVariableBindings(stationName,waitStatus,waitImg);
     
     
-    NSArray * cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[stationName(30)]-8-[waitImg(23)]" options:0 metrics:nil views:views];
+    NSArray * cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[stationName(50)]-13-[waitImg(23)]" options:0 metrics:nil views:views];
     
     [cell.contentView addConstraints:cons];
     
-    cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[stationName(30)][waitStatus(40)]" options:0 metrics:nil views:views];
+    cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[stationName(50)][waitStatus(50)]" options:0 metrics:nil views:views];
     
     [cell.contentView addConstraints:cons];
     
@@ -363,6 +392,22 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
+    if(![Reachability isReachable])
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"对不起，网络异常，请检查您的网络设置。"
+                                                       delegate:self
+                                              cancelButtonTitle:@"好的"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+        
+        
+    }
+    
     NSString* stopid = [NSString stringWithFormat:@"%ld",indexPath.row+1 ];
     
     
@@ -377,8 +422,9 @@
     
     self.selectIndexPath = indexPath;
     
+    [tableView reloadData];
     
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+   // [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     
 }
@@ -388,18 +434,17 @@
     
     if(self.selectIndexPath == nil)
     {
-        return 30.0f;
+        return 50.0f;
     }
     else if(self.selectIndexPath != nil && self.selectIndexPath == indexPath)
     {
-        return 70.0f;
+        return 100.0f;
     }
-    return 30.0f;
+    return 50.0f;
 }
 
 
 - (void)dealloc {
-    [_lineinfoview release];
-    [super dealloc];
+    
 }
 @end

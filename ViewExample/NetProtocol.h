@@ -17,4 +17,6 @@
 -(void)returnPackData:(SID*)sid lineinfo:(LineInfo*)lineinfo results:(LineResultTwo*)result;
 -(void)parseWXSID;
 
+-(void)failed;
+
 @end

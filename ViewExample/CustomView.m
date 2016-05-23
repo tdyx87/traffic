@@ -8,6 +8,7 @@
 
 #include "CustomView.h"
 #import "AutoLayoutUtils.h"
+#import "UIColor+Hex.h"
 @implementation CustomView
 
  
@@ -49,11 +50,7 @@
         
         [station setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        
-        constraint = [AutoLayoutUtils setTop:station superview:self top:0];
-        
-        [self addConstraint:constraint];
-        
+        station.numberOfLines = 0;
         
         self.station = station;
         
@@ -93,9 +90,15 @@
         [self addConstraints:cons];
         
         
+        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[station]-2-|" options:NSLayoutFormatAlignAllTop metrics:nil views:views];
         
+        [self addConstraints:cons];
+
+        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[station(45)]" options:NSLayoutFormatAlignAllTop metrics:nil views:views];
         
-        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[firstImg]-2-|" options:0 metrics:nil views:views];
+        [self addConstraints:cons];
+        
+        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[station][firstImg]-2-|" options:0 metrics:nil views:views];
         
         [self addConstraints:cons];
         
@@ -104,12 +107,12 @@
         
         [firstImg addConstraint:ww];
         
-        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[firstTime]-2-|" options:0 metrics:nil views:views];
+        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[station][firstTime]-2-|" options:0 metrics:nil views:views];
         
         
         [self addConstraints:cons];
         
-        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[lastImg]-2-|" options:0 metrics:nil views:views];
+        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[station][lastImg]-2-|" options:0  metrics:nil views:views];
         
         
         ww = [NSLayoutConstraint constraintWithItem:lastImg attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:lastImg attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
@@ -119,7 +122,7 @@
         
         [self addConstraints:cons];
         
-        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[lastTime]-2-|" options:0 metrics:nil views:views];
+        cons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[station][lastTime]-2-|" options:0 metrics:nil views:views];
         
         [self addConstraints:cons];
     
@@ -135,14 +138,14 @@
 {
     if(self.selected)
     {
-        [self setBackgroundColor:[UIColor blueColor]];
+        [self setBackgroundColor:[UIColor colorWithRed:21/255.0f green:142/255.0f blue:210/255.0f alpha:1.0f]];
         
         self.checkedImg.hidden = NO;
         
     }
     else
     {
-        [self setBackgroundColor:[UIColor grayColor]];
+        [self setBackgroundColor:[UIColor colorWithHexString:@"#FFFFFF"]];
         
         self.checkedImg.hidden = YES;
         

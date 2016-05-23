@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eIO-Ly-Vug">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eIO-Ly-Vug">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="6000" identifier="xcode"/>
@@ -56,7 +56,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xau-Wm-Vxm">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.55294117647058827" green="0.55686274509803924" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-tU-qC2">
@@ -72,30 +72,64 @@
                                     <action selector="searchevent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sb2-PO-9kf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEd-vg-mS7">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="如果无聊就点我">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="148" y="242" width="145" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="more:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ke-Gc-YRo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等车必备坐车必备" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIf-93-a3M">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="10" y="242" width="136" height="29"/>
+                                </variation>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Xau-Wm-Vxm" secondAttribute="trailing" constant="10" id="4dy-y3-Wzi"/>
                             <constraint firstAttribute="trailing" secondItem="ad7-jf-rko" secondAttribute="trailing" constant="10" id="ASR-lq-sE1"/>
+                            <constraint firstItem="PIf-93-a3M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Go8-Te-lcP"/>
                             <constraint firstAttribute="trailing" secondItem="Lmw-tU-qC2" secondAttribute="trailing" constant="20" id="Jg6-Su-ZUl">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint firstItem="ad7-jf-rko" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="PRS-IU-FjH"/>
+                            <constraint firstItem="sEd-vg-mS7" firstAttribute="centerY" secondItem="PIf-93-a3M" secondAttribute="centerY" id="Pn7-CM-d6v"/>
+                            <constraint firstItem="sEd-vg-mS7" firstAttribute="top" secondItem="Xau-Wm-Vxm" secondAttribute="bottom" constant="2" id="U7B-Df-10n"/>
                             <constraint firstItem="Xau-Wm-Vxm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="200" id="cHf-Bd-7hv">
                                 <variation key="heightClass=regular-widthClass=compact" constant="240"/>
                             </constraint>
                             <constraint firstItem="ad7-jf-rko" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="gXG-AR-lch"/>
+                            <constraint firstItem="PIf-93-a3M" firstAttribute="top" secondItem="Xau-Wm-Vxm" secondAttribute="bottom" constant="2" id="mg2-7u-v9E"/>
                             <constraint firstItem="Xau-Wm-Vxm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="qzd-Rn-VYI"/>
+                            <constraint firstItem="sEd-vg-mS7" firstAttribute="leading" secondItem="PIf-93-a3M" secondAttribute="trailing" constant="2" id="sK1-Hj-TLC"/>
                             <constraint firstItem="Lmw-tU-qC2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="vz2-b7-l2O"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Xau-Wm-Vxm"/>
+                                <exclude reference="sEd-vg-mS7"/>
+                                <exclude reference="PIf-93-a3M"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Go8-Te-lcP"/>
+                                <exclude reference="mg2-7u-v9E"/>
                                 <exclude reference="4dy-y3-Wzi"/>
                                 <exclude reference="cHf-Bd-7hv"/>
                                 <exclude reference="qzd-Rn-VYI"/>
+                                <exclude reference="Pn7-CM-d6v"/>
+                                <exclude reference="U7B-Df-10n"/>
+                                <exclude reference="sK1-Hj-TLC"/>
                                 <exclude reference="ASR-lq-sE1"/>
                                 <exclude reference="PRS-IU-FjH"/>
                                 <exclude reference="gXG-AR-lch"/>
@@ -106,11 +140,18 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Xau-Wm-Vxm"/>
+                                <include reference="sEd-vg-mS7"/>
+                                <include reference="PIf-93-a3M"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Go8-Te-lcP"/>
+                                <include reference="mg2-7u-v9E"/>
                                 <include reference="4dy-y3-Wzi"/>
                                 <include reference="cHf-Bd-7hv"/>
                                 <include reference="qzd-Rn-VYI"/>
+                                <include reference="Pn7-CM-d6v"/>
+                                <include reference="U7B-Df-10n"/>
+                                <include reference="sK1-Hj-TLC"/>
                                 <include reference="ASR-lq-sE1"/>
                                 <include reference="PRS-IU-FjH"/>
                                 <include reference="gXG-AR-lch"/>
@@ -123,6 +164,7 @@
                     <connections>
                         <outlet property="Search" destination="Lmw-tU-qC2" id="t3n-eJ-rV5"/>
                         <outlet property="linename" destination="ad7-jf-rko" id="ZrC-ys-QVI"/>
+                        <outlet property="more" destination="sEd-vg-mS7" id="4MF-EC-8dn"/>
                         <outlet property="searchDisplayController" destination="lzH-6a-5pL" id="BCR-6P-zWP"/>
                         <outlet property="tips" destination="Xau-Wm-Vxm" id="FTu-gI-1BU"/>
                     </connections>

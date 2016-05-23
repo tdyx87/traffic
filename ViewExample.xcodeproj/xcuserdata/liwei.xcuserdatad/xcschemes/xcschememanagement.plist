@@ -6,6 +6,8 @@
 	<dict>
 		<key>ViewExample.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -18,6 +20,16 @@
 			<true/>
 		</dict>
 		<key>CE26C7641CCDE80000E9D894</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D01618B41CF0C7E4008CD520</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D01618CC1CF0C7E4008CD520</key>
 		<dict>
 			<key>primary</key>
 			<true/>
