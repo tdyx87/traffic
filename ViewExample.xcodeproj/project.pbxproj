@@ -285,7 +285,7 @@
 				TargetAttributes = {
 					CE26C74B1CCDE7FF00E9D894 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = XHBX47YM87;
+						DevelopmentTeam = FUFC7YB968;
 					};
 				};
 			};
@@ -425,6 +425,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "f1748b8a-e8a4-4850-a5f9-f022fccd7b70";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -463,6 +464,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "f1748b8a-e8a4-4850-a5f9-f022fccd7b70";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -482,6 +484,7 @@
 				INFOPLIST_FILE = ViewExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wei.shanghaifabu;
 				PRODUCT_NAME = "上海实时公交";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -501,6 +504,7 @@
 				INFOPLIST_FILE = ViewExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wei.shanghaifabu;
 				PRODUCT_NAME = "上海实时公交";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

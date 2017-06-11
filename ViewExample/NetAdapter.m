@@ -37,6 +37,10 @@
     self = [super init];
     if (self) {
         
+        
+        
+        [(NSMutableURLRequest*)request setValue:_cookies  forHTTPHeaderField:@"Cookie"];
+        
         conn = [[NSURLConnection alloc]initWithRequest:request delegate:self];
         delegate = thedelegate;
         /*
@@ -161,10 +165,29 @@
         return;
     }
     
+    _cookies = nil;
+    
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [cookieJar cookies]) {
-       //NSLog(@"cookie%@", cookie);
+      // NSLog(@"cookie%@", cookie);
+        
+        NSString * cookies = [NSString stringWithFormat:@"%@=%@;",cookie.name,cookie.value];
+        
+        if(_cookies == nil)
+        {
+            _cookies = cookies;
+        }
+        else
+        {
+            _cookies = [_cookies stringByAppendingString:cookies];
+        }
+        
+        
+        
     }
+    
+    
+    NSLog(@"%@",_cookies);
     
     [delegate parseData:responseData flag:flag];
     

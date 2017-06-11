@@ -28,6 +28,7 @@
 
 -(id)initWithRequest:(NSURLRequest*)request delegate:(id<NetProtocol>)thedelegate flag:(NSString*)theflag;
 
+@property NSString *cookies;
 
 @end
 

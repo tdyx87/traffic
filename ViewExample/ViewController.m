@@ -40,7 +40,7 @@
     self.linename.delegate = self;
     
     
-    //[[StationController Instance]getBuss];
+    [[StationController Instance]getBuss];
     
     
     [self.linename setBorderStyle:UITextBorderStyleRoundedRect];
@@ -151,7 +151,7 @@
     NSString * lname =self.linename.text;
     [[StationController Instance]getLineInfo:lname];
     
-    //[[StationController Instance] getWXStation:@""];
+    //[[StationController Instance] getWXStation:lname];
     
 }
 

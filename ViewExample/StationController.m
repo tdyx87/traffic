@@ -51,7 +51,7 @@ static StationController * class;
     [request setValue:@"http://shanghaicity.openservice.kankanews.com/public/bus" forHTTPHeaderField:@"Referer"];
     [request setValue:@"shanghaicity.openservice.kankanews.com" forHTTPHeaderField:@"Host"];
     [request setHTTPShouldHandleCookies:YES];
-    [request setValue:@"ansoecdxc=0; Hm_1vt_6f69830ae7173059e935b61372431b35=0; HH=0; HK=0; HG=0; HA=0; HB=0; HC=0; HD=0; HY=0; HO=0; Hm_p1vt_6f69830ae7173059e935b61372431b35=0; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=0; Hm_lpvt_6f69830ae7173059e935b61372431b35=0; _ga=0" forHTTPHeaderField:@"Cookie"];
+    [request setValue:@"Hm_lpvt_6f69830ae7173059e935b61372431b35=1470656692; Hm_lvt_6f69830ae7173059e935b61372431b35=1468142024,1468411913,1469879136,1470654748; HA=1e1b3ce796155016e8de615ae21e1d555336855b; HB=MWUxYjNjZTc5NjE1NTAxNmU4ZGU2MTVhZTIxZTFkNTU1MzM2ODU1Yg==; HC=bf92e57296fe6d355b8bed0fa854e746f6b2f6f6; HD=MjAxNjA4MDg=; HG=9e6d85ec2b39b530d5bc75b8642ddec3974c6b0b; HH=5a8325e60e86222368e791b36e7442356fd92d55; HK=275558e38954bc8267e75fb7678f2f525ef5bb7c; Hm_1vt_6f69830ae7173059e935b61372431b35=eSgsNFeoaRtRBSr0Dt+sAg==; Hm_p1vt_6f69830ae7173059e935b61372431b35=eSgsNFeoaSBRBSr0Dt+8Ag==; HO=TWpBeE5qQTRNRGc9MTlNVEUyTWpJMzEyVFc5NmFXeHNZUzgxTGpBZ0tHbFFhRzl1WlRzZ1ExQlZJR2xRYUc5dVpTQlBVeUE0WHpNZ2JHbHJaU0JOWVdNZ1QxTWdXQ2tnUVhCd2JHVlhaV0pMYVhRdk5qQXdMakV1TkNBb1MwaFVUVXdzSUd4cGEyVWdSMlZqYTI4cElFMXZZbWxzWlM4eE1rWTNNQ0JOYVdOeWIwMWxjM05sYm1kbGNpODJMak11TVRZZ1RtVjBWSGx3WlM5WFNVWkpJRXhoYm1kMVlXZGxMM3BvWDBOT2FhYmFjNmM2MGNhMjNiZDc5NjRiOGVjYjBkMjEwNjg2NDM1NTI2ZWY=; HY=MjAxNjA4MDg=275558e38954bc8267e75fb7678f2f525ef5bb7c9e6d85ec2b39b530d5bc75b8642ddec3974c6b0baabac6c60ca23bd7964b8ecb0d210686435526ef; PHPSESSID=m7n12493v263tvn9thuthl2qv1; _ga=GA1.2.923484555.1457530696; _gat=1; _gscu_1404343399=63551747ghkh0814; Hm_lvt_ba907373475281ec79b64ad73e7c9a36=1463551748" forHTTPHeaderField:@"Cookie"];
     [request setValue:@"57" forHTTPHeaderField:@"Content-Length"];
     
     NSString * encodingString = [linename stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -138,7 +138,7 @@ static StationController * class;
     
     NSMutableURLRequest * request =  [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
     
-    [request setValue:@"ansoecdxc=0; Hm_1vt_6f69830ae7173059e935b61372431b35=0; HH=0; HK=0; HG=0; HA=0; HB=0; HC=0; HD=0; HY=0; HO=0; Hm_p1vt_6f69830ae7173059e935b61372431b35=0; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=0; Hm_lpvt_6f69830ae7173059e935b61372431b35=0; _ga=0" forHTTPHeaderField:@"Cookie"];
+    //[request setValue:@"ansoecdxc=0; Hm_1vt_6f69830ae7173059e935b61372431b35=0; HH=0; HK=0; HG=0; HA=0; HB=0; HC=0; HD=0; HY=0; HO=0; Hm_p1vt_6f69830ae7173059e935b61372431b35=0; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=0; Hm_lpvt_6f69830ae7173059e935b61372431b35=0; _ga=0" forHTTPHeaderField:@"Cookie"];
     
     [[NetAdapter alloc]initWithRequest:request delegate:self flag:@"getBuss"];
 }
@@ -395,10 +395,13 @@ static StationController * class;
 
 -(void)parseData:(id)data flag:(NSString *)flag
 {
+    
+   
+    
     NSError *error = nil;
     NSDictionary*  jsondata = [NSJSONSerialization JSONObjectWithData:(NSData*)data options:NSJSONReadingMutableLeaves error:&error];
     NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@",aString);
+    NSLog(@"%@",jsondata);
    if([flag isEqual:@"SID"])
    {
        [self parseWXSid:jsondata];
